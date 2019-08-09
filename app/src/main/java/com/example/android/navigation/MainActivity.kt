@@ -19,14 +19,28 @@ package com.example.android.navigation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+
+        // find navController
+        val navController = this.findNavController(R.id.fragmentHost)
+
+        // link the nav controller to the app action bar
+        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
+    // give the up arrow the functionality to go back in the stack as specified in the navigation graph
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.fragmentHost)
+        return navController.navigateUp()
+    }
 
 }
