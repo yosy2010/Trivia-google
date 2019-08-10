@@ -19,7 +19,6 @@ package com.example.android.navigation
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -37,9 +36,6 @@ class GameWonFragment : Fragment() {
         binding.nextMatchButton.setOnClickListener { view ->
             view.findNavController().navigate(GameWonFragmentDirections.actionGameWonFragmentToGameFragment())
         }
-
-        // get the passed args
-        val args = GameWonFragmentArgs.fromBundle(arguments!!)
 
         // for the share button
         setHasOptionsMenu(true)
