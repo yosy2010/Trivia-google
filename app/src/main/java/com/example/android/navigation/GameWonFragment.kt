@@ -35,7 +35,7 @@ class GameWonFragment : Fragment() {
 
         // navigate to the beginning of the game
         binding.nextMatchButton.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)
+            view.findNavController().navigate(GameWonFragmentDirections.actionGameWonFragmentToGameFragment())
         }
 
         return binding.root
